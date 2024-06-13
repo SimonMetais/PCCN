@@ -73,7 +73,7 @@ DATABASES = {
         "NAME": 'db_name:test',
         "USER": 'db_user:test',
         "PASSWORD": 'db_password:test',
-        "HOST": 'db_c',
+        "HOST": 'PCCV__db',
     } if IN_PROD else {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
