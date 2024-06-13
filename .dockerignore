@@ -2,6 +2,6 @@
 __pycache__/
 
 !scripts
-!app
+!django_app
 !Pipfile
 !Pipfile.lock
