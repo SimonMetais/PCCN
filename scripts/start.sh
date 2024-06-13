@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd django_app || exit
+
 python manage.py makemigrations
 python manage.py migrate
 
