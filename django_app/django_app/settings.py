@@ -19,7 +19,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 IN_PROD = os.environ.get('IN_PROD')
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
