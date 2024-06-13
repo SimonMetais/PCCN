@@ -1,0 +1,27 @@
+name: Pull, compose down, and compose up on serv
+
+on:
+  push:
+    tags:
+      - 'v*' # Déclencher uniquement pour les tags qui commencent par 'v'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: SSH into server and restart Docker Compose
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SERV_HOST }}
+        username: ${{ secrets.SERV_USERNAME }}
+        password: ${{ secrets.SERV_PASSWORD }}
+        script: |
+          cd prod/pro/PCCV
+          git pull
+          docker compose build
+          docker compose down
+          docker compose up -d

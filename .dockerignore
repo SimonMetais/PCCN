@@ -1,0 +1,7 @@
+**
+__pycache__/
+
+!scripts
+!app
+!Pipfile
+!Pipfile.lock

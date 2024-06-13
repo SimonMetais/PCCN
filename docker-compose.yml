@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+
+    db:
+        image: postgres:12.18
+        container_name: db_c
+        restart: always
+        volumes:
+            - db-volume:/var/lib/postgresql/data/
+        environment:
+            POSTGRES_USER: db_user:test
+            POSTGRES_PASSWORD: db_password:test
+            POSTGRES_DB: db_name:test
+
+    app:
+#        image: simonmetais/django_test:latest
+        build:
+            context: .
+        container_name: app_c
+        restart: always
+        volumes:
+            - static-data:/static
+            - media-data:/media
+        depends_on:
+            - db
+
+    proxy:
+        build:
+            context: ./proxy
+        restart: always
+        container_name: proxy_c
+        volumes:
+            - static-data:/static
+            - media-data:/media
+        ports:
+            - "81:81"
+        depends_on:
+            - app
+
+volumes:
+    db-volume:
+    static-data:
+    media-data:

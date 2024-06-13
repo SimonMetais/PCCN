@@ -4,11 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+django = "5.0.6"
 pillow = "*"
 python-dotenv = "*"
 
 [dev-packages]
+psycopg2-binary = "*"  # Pour PostgreSQL
+gunicorn = "*"
 
 [requires]
 python_version = "3.12"
