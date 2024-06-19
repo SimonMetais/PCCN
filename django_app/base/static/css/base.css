@@ -6,7 +6,7 @@
     font-family:  "DM Sans", sans-serif;
 }
 body {
-    background-color: blue;
+    background-color: green;
 }
 
 header {
@@ -44,7 +44,7 @@ header {
 }
 
 main {
-    min-height: 100vh;
+    min-height: 50vh;
 }
 
 *::-webkit-scrollbar {

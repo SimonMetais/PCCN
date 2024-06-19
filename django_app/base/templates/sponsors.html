@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/sponsor.css' %}">
+{% endblock %}
 
 {%  block content %}
+<div class="sponsors_list">
     {% for sponsor in sponsors %}
-        <p>{{ sponsor.name }}</p>
+    <div class="sponsor_card">
+        <span><img src="{{ sponsor.logo.url }}" alt="Logo {{ sponsor.name }}"></span>
+        <h1>{{ sponsor.name }}</h1>
+    </div>
     {% endfor %}
+</div>
 {% endblock %}
