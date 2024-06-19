@@ -20,8 +20,8 @@ services:
         container_name: PCCN__app
         restart: always
         volumes:
-            - static-data:/static
-            - media-data:/media
+            - static-data:/app/static
+            - media-data:/app/media
         depends_on:
             - db
 
