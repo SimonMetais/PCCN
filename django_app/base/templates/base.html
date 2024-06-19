@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    {% block head %}
+    {% endblock %}
+    <title>Poney, chevaux chez nous</title>
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="{% url 'home' %}">PCCN</a>
+        <ul class="nav-list">
+            <li><a href="{% url 'sponsors' %}">Partenaires</a></li>
+        </ul>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
