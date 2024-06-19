@@ -73,7 +73,7 @@ DATABASES = {
         "NAME": 'db_name:test',
         "USER": 'db_user:test',
         "PASSWORD": 'db_password:test',
-        "HOST": 'PCCV__db',
+        "HOST": 'PCCN__db',
     } if IN_PROD else {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
@@ -107,7 +107,7 @@ LANGUAGE_CODE = 'fr-fr'
 
 TIME_ZONE = 'Europe/Paris'
 
-USE_I18N = True
+USE_I18N = False
 
 USE_TZ = True
 

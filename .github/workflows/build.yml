@@ -20,7 +20,7 @@ jobs:
         username: ${{ secrets.SERV_USERNAME }}
         password: ${{ secrets.SERV_PASSWORD }}
         script: |
-          cd prod/pro/PCCV
+          cd prod/pro/PCCN
           git pull
           docker compose build
           docker compose down

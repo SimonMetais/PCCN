@@ -4,7 +4,7 @@ services:
 
     db:
         image: postgres:12.18
-        container_name: PCCV__db
+        container_name: PCCN__db
         restart: always
         volumes:
             - db-volume:/var/lib/postgresql/data/
@@ -17,7 +17,7 @@ services:
 #        image: simonmetais/django_test:latest
         build:
             context: .
-        container_name: PCCV__app
+        container_name: PCCN__app
         restart: always
         volumes:
             - static-data:/static
@@ -29,7 +29,7 @@ services:
         build:
             context: ./proxy
         restart: always
-        container_name: PCCV__proxy
+        container_name: PCCN__proxy
         volumes:
             - static-data:/static
             - media-data:/media

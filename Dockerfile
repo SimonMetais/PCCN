@@ -7,7 +7,8 @@ ENV PYTHONUNBUFFERED=1
 
 COPY Pipfile Pipfile.lock ./
 RUN python -m pip install --upgrade pip
-RUN pip install pipenv && pipenv install --dev --system --deploy --clear
+RUN pip install pipenv && pipenv install --system --deploy --clear
+RUN pipenv install psycopg2-binary gunicorn
 RUN pip uninstall virtualenv -y && pip uninstall pipenv -y
 
 WORKDIR /app

@@ -4,9 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "5.0.6"
+django = "==5.*"
 pillow = "*"
 python-dotenv = "*"
+django-cleanup = "*"
 
 [dev-packages]
 psycopg2-binary = "*"  # Pour PostgreSQL
