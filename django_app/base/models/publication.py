@@ -6,6 +6,12 @@ from django.template.defaultfilters import truncatechars
 from django.urls import reverse
 from django.utils.html import format_html
 
+from django_app.converters import datetime_url_format
+
+
+def image_path(instance, filename):
+    return Path('publications', instance.publication.post_at.strftime(datetime_url_format), Path(filename).name)
+
 
 class Publication(m.Model):
     description = m.TextField()
@@ -16,17 +22,16 @@ class Publication(m.Model):
         return truncatechars(self.description, 100)
 
     def get_absolute_url(self):
-        return reverse('publication', kwargs={'pk': self.pk})
+        return reverse('publication', kwargs={'dt': self.post_at})
 
 
 class PublicationAttachment(m.Model):
-    file = m.FileField('Média', upload_to='publications/')
+    file = m.FileField('Média', upload_to=image_path)
     file_type = m.CharField('Type de média', max_length=1, editable=False)
-    publication = m.ForeignKey(Publication, m.CASCADE, 'Attachments')
+    publication = m.ForeignKey(Publication, m.CASCADE, 'attachments')
 
     class Meta:
         verbose_name = 'Média'
-        verbose_name_plural = 'Médias'
 
     def determine_file_type(self):
         image_extensions = ['.jpg', '.jpeg', '.png', '.gif']

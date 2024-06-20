@@ -1,7 +1,8 @@
 
 from django.contrib import admin
+from django.contrib.auth.models import Group
 
-from base.models import Sponsor, Animal, Publication, PublicationAttachment
+from base.models import *
 
 
 @admin.register(Sponsor)
@@ -26,3 +27,17 @@ class PublicationAdmin(admin.ModelAdmin):
     fields = ('description', )
     list_display = ('short_description', )
     inlines = (PublicationAttachmentAdmin, )
+
+
+@admin.register(Home)
+class HomeAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request, obj=None):
+        if self.model.objects.count() >= 1:
+            return False
+        return super().has_add_permission(request)
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
+admin.site.unregister(Group)

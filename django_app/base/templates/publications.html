@@ -1,3 +1,15 @@
 {% for publication in publications %}
-    <p>{{ publication.description }}</p>
+    <h1>{{ publication.description }}</h1>
+    <a href=""></a>
+    {% for attachment in publication.attachments.all %}
+        <p>{{ attachment.file.name }}</p>
+        <p>{{ attachment.file_type }}</p>
+        {% if attachment.file_type == 'Image' %}
+        <img src="{{ attachment.file.url }}">
+        {% elif attachment.file_type == 'Video' %}
+        <video controls><source src="{{ attachment.file.url }}">Your browser does not support the video tag.</video>
+        {% else %}
+        <p>PAS D'APERCU</p>
+        {% endif %}
+    {% endfor %}
 {% endfor %}
