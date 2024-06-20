@@ -12,6 +12,7 @@ class Sponsor(m.Model):
     name = m.CharField(max_length=50, unique=True, verbose_name="Nom")
     slug = m.SlugField(max_length=50, unique=True)
     logo = m.ImageField(upload_to=image_path)
+    website = m.CharField(max_length=255, unique=True, verbose_name="Site Web")
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
