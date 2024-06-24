@@ -1,54 +1,105 @@
+/* GLOBAL  */
+
 * {
-    margin: 0;
-    padding: 0;
     text-decoration: none;
     list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 body {
-    background-color: green;
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+
+/* HEADER */
+
 header {
-    position: fixed;
-    right: 0;
-    top: 0;
+    background: green;
+    color: white;
     z-index: 1000;
-    width: 85%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 33px 9%;
-    background: transparent;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px); /* Support pour Safari */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
-.logo {
+nav {
+    align-items: center;
+    min-height: 7vh;
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+nav .logo {
+    flex: 3 1 40rem;
     font-size: 24px;
     font-weight: 700;
-    color: black;
+    color: white;
 }
-.nav-list {
+nav ul {
     display: flex;
+    flex: 1 1 40rem;
+    align-items: center;
+    justify-content: space-between;
 }
-.nav-list a {
-    color: black;
+nav ul a {
     margin-left: 60px;
     font-size: 21px;
     font-weight: 500;
     border-bottom: 2px solid transparent;
     transition: all 0.55s ease;
+    color: white;
 }
-.nav-list a:hover {
-    border-bottom: 2px solid black;
+nav ul a:hover, .active_url a {
+    border-bottom: 2px solid white;
 }
+
+
+/* MAIN */
 
 main {
-    min-height: 100vh;
+    flex: 1 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    margin: 0 5rem;
+    margin-top: 7vh;
 }
 
-*::-webkit-scrollbar {
-  width: 0;
+
+/* FOOTER */
+
+footer {
+    flex-shrink: 0;
+    border-top: 1px dashed black;
+    width: 100%;
+    background: #f1f1f1;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 20px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+footer section {
+    width: 45%;
+    margin: 0.5rem 1rem;
+    font-size: 13px;
+    font-family: "Noto Sans Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+}
+footer li {
+    padding: 2px 0;
+}
+footer a {
+    text-decoration: underline;
+}
+footer section h1 {
+    font-size: 20px;
 }

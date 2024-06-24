@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/publication.css' %}">
+{% endblock %}
+
+{%  block content %}
+<h1>{{ publication.description }}</h1>
+{% endblock %}

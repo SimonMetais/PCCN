@@ -1,0 +1,20 @@
+main section {
+    display: flex;
+    height: 5rem;
+    width: 100%;
+}
+
+.publication {
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    border: 2px solid;
+    margin: 1rem 0;
+}
+.publication > a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

@@ -1,15 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/publications.css' %}">
+{% endblock %}
+
+{%  block content %}
 {% for publication in publications %}
+<section class="publication">
     <h1>{{ publication.description }}</h1>
-    <a href=""></a>
     {% for attachment in publication.attachments.all %}
-        <p>{{ attachment.file.name }}</p>
-        <p>{{ attachment.file_type }}</p>
-        {% if attachment.file_type == 'Image' %}
-        <img src="{{ attachment.file.url }}">
-        {% elif attachment.file_type == 'Video' %}
-        <video controls><source src="{{ attachment.file.url }}">Your browser does not support the video tag.</video>
-        {% else %}
-        <p>PAS D'APERCU</p>
-        {% endif %}
+    <p>{{ attachment.file.name }}</p>
+    <p>{{ attachment.file_type }}</p>
+    {% if attachment.file_type == 'Image' %}
+    <img src="{{ attachment.file.url }}">
+    {% elif attachment.file_type == 'Video' %}
+    <video controls><source src="{{ attachment.file.url }}">Your browser does not support the video tag.</video>
+    {% else %}
+    <p>PAS D'APERCU</p>
+    {% endif %}
     {% endfor %}
+    <a href="{{ publication.get_absolute_url }}"></a>
+</section>
 {% endfor %}
+{% endblock %}

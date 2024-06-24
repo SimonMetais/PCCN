@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
 
 {%  block content %}
 <section>
     <p>{{ home_text }}</p>
-    <p>{{ location }}</p>
     <p>{{ last_publication.description }}</p>
 </section>
 <section>
     <p>{{ home_text }}</p>
-    <p>{{ location }}</p>
     <p>{{ last_publication.description }}</p>
 </section>
 {% endblock %}
