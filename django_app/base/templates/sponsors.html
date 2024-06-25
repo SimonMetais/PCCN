@@ -6,12 +6,11 @@
 {% endblock %}
 
 {%  block content %}
-<div class="sponsors_list">
-    {% for sponsor in sponsors %}
-    <div class="sponsor_card">
-        <span><img src="{{ sponsor.logo.url }}" alt="Logo {{ sponsor.name }}"></span>
-        <h1>{{ sponsor.name }}</h1>
-    </div>
-    {% endfor %}
+{% for sponsor in sponsors %}
+<div class="sponsor_card">
+    <span><img src="{{ sponsor.logo.url }}" alt="Logo {{ sponsor.name }}"></span>
+    <h1>{{ sponsor.name }}</h1>
+    <a href="{{ sponsor.website }}" target="_blank"></a>
 </div>
+{% endfor %}
 {% endblock %}

@@ -7,7 +7,7 @@ from base.models import *
 
 @admin.register(Sponsor)
 class SponsorAdmin(admin.ModelAdmin):
-    fields = ('name', 'logo')
+    fields = ('name', 'logo', 'website')
 
 
 @admin.register(Animal)

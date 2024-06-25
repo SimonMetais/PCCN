@@ -1,5 +1,6 @@
 from django.db import models as m
 
+
 horaires = """
 ✅ Lun 10h-19h
 ✅ Mar 10h-19h

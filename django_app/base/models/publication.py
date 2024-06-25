@@ -30,6 +30,7 @@ class PublicationAttachment(m.Model):
     file_type = m.CharField('Type de média', max_length=1, editable=False)
     publication = m.ForeignKey(Publication, m.CASCADE, 'attachments')
 
+
     class Meta:
         verbose_name = 'Média'
 

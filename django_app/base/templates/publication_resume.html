@@ -1,0 +1,14 @@
+<div class="publi_resume">
+    {% if publication.attachments.count %}
+    <div class="publi_resume_txt">
+        {{ publication.description|linebreaks }}
+    </div>
+    <div class="publi_resume_images">
+        y'a des fichiers.
+    </div>
+    {% else %}
+    <div class="publi_resume_fulltxt">
+        {{ publication.description|linebreaks }}
+    </div>
+    {% endif %}
+</div>

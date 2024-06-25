@@ -3,15 +3,13 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/publication_resume.css' %}">
 {% endblock %}
 
 {%  block content %}
-<section>
-    <p>{{ home_text }}</p>
-    <p>{{ last_publication.description }}</p>
+<section class="debug home_text">Le texte d'accueil</section>
+<section class="debug last_publication">
+    {% include 'publication_resume.html' with publication=last_publication%}
 </section>
-<section>
-    <p>{{ home_text }}</p>
-    <p>{{ last_publication.description }}</p>
-</section>
+<section class="debug last_animal">Dernier protégé arrivé</section>
 {% endblock %}
