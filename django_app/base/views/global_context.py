@@ -3,6 +3,7 @@ from base.models import Home
 
 def global_data(request):
     header = {
+        'Accueil': 'home',
         'Protégés': 'animals',
         'Publications': 'publications',
         'Partenaires': 'sponsors',

@@ -4,7 +4,11 @@
         {{ publication.description|linebreaks }}
     </div>
     <div class="publi_resume_images">
-        y'a des fichiers.
+        {% for attachment in publication.attachments.all %}
+        <div class="publi_resume_image">
+            <img src="{{ attachment.file.url }}">
+        </div>
+        {% endfor %}
     </div>
     {% else %}
     <div class="publi_resume_fulltxt">

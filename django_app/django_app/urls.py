@@ -11,6 +11,7 @@ register_converter(DatetimeConverter, 'dt')
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('test/', views.test, name='test'),
 
     path('protégés/', views.animals, name='animals'),
     path('protégés/<str:slug>/', views.animal, name='animal'),
