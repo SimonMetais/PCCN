@@ -87,6 +87,6 @@ USE_TZ = False
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR.parent / 'static'
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR.parent / 'media'
+MEDIA_ROOT = BASE_DIR.parent / 'media' if IN_PROD else BASE_DIR / 'media_dev'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

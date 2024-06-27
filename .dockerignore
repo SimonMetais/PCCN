@@ -3,6 +3,7 @@ __pycache__/
 
 !scripts
 !django_app
+django_app/media_dev
 !Pipfile
 !Pipfile.lock
 !.env
