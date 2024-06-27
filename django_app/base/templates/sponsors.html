@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
+{% block main_classes %}row px-5 pt-3 row-cols-2 row-cols-sm-3 g-2{% endblock %}
 
 {% block content %}
 {% for sponsor in sponsors %}
-<div class="col">
-    <div class="card">
-        <img src="{{ sponsor.logo.url }}" class="card-img-top" alt="Logo {{ sponsor.name }}">
-        <div class="card-body">
-            <h5 class="card-title">{{ sponsor.name }}</h5>
+<div class="col g-3">
+    <div class="card h-100">
+        <div class="card-header">
+            {{ sponsor.name }}
+        </div>
+        <div class="card-body d-flex flex-wrap align-items-center" style="background-color: LightBlue;">
+            <img src="{{ sponsor.logo.url }}" class="card-img-top" alt="Logo {{ sponsor.name }}">
+            <a href="{{ sponsor.website }}" target="_blank" class="stretched-link"></a>
         </div>
     </div>
 </div>

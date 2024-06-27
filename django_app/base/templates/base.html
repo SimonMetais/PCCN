@@ -14,9 +14,12 @@
       {% include 'elements/navbar.html' %}
     </header>
 
-    <main class="row row-cols-1 row-cols-md-3 g-4">
-      {% block content %}
-      {% endblock %}
+    <main
+            class="m-auto px-3 px-sm-5 pt-3 {% block main_classes %}row px-5 pt-3 row-cols-2 row-cols-sm-3 g-2{% endblock %}"
+            style="background-color: Ivory;"
+    >
+    {% block content %}
+    {% endblock %}
     </main>
 
   </body>
