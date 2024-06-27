@@ -1,2 +1,14 @@
 {% extends 'base.html' %}
-{% load static %}
+
+{% block content %}
+{% for sponsor in sponsors %}
+<div class="col">
+    <div class="card">
+        <img src="{{ sponsor.logo.url }}" class="card-img-top" alt="Logo {{ sponsor.name }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ sponsor.name }}</h5>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
