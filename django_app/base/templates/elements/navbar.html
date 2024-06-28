@@ -9,7 +9,15 @@
 
         {% for onglet, link in header_list %}
         <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name in link %}active" aria-current="page{% endif %}" href="{% url link %}">{{onglet}}</a>
+          <a
+             {% if request.resolver_match.url_name in link %}
+             aria-current="page"
+             class="nav-link active"
+             {% else %}
+             class="nav-link"
+             {% endif %}
+             href="{% url link %}">{{onglet}}
+          </a>
         </li>
         {% endfor %}
 

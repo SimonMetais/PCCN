@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
-{% block main_classes %}row px-5 pt-3 row-cols-2 row-cols-sm-3 g-2{% endblock %}
 
 {% block content %}
-{% for sponsor in sponsors %}
-<div class="col g-3">
-    <div class="card h-100">
-        <div class="card-header">
-            {{ sponsor.name }}
-        </div>
-        <div class="card-body d-flex flex-wrap align-items-center" style="background-color: LightBlue;">
-            <img src="{{ sponsor.logo.url }}" class="card-img-top" alt="Logo {{ sponsor.name }}">
-            <a href="{{ sponsor.website }}" target="_blank" class="stretched-link"></a>
-        </div>
+<div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 row-cols-xl-6 g-2 g-sm-3 g-lg-4 pt-5">
+  {% for sponsor in sponsors %}
+  <div class="col">
+    <div class="card h-100" style="background-color: LightBlue;">
+      <div class="card-body">
+        <h5 class="card-title">{{ sponsor.name }}</h5>
+        <p class="card-text"><small class="text-body-secondary">{{ sponsor.detail }}</small></p>
+      </div>
+      <div style="height: 70%;">
+        <img src="{{ sponsor.logo.url }}" class="card-img-bottom p-2 object-fit-contain" alt="Logo {{ sponsor.name }}">
+      </div>
     </div>
+  </div>
+  {% endfor %}
 </div>
-{% endfor %}
 {% endblock %}
