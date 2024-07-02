@@ -16,7 +16,7 @@
 <header class="fixed-top">
   {% include 'elements/navbar.html' %}
 </header>
-<main class="h-100 m-auto px-2 px-sm-5" style="padding-top: 4rem;">
+<main class="m-auto px-2 px-sm-5 {% block main-styles %}{% endblock %}" style="padding-top: 4rem;">
   {% block content %}
   {% endblock %}
 </main>
