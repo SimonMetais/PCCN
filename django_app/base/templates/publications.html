@@ -8,12 +8,11 @@
 
 {% block content %}
 <div id="publications">
-
     {% for publication in publications %}
 
     {% if publication.is_first_of_month %}
-    <div class="position-sticky bg-success my-4" style="top: 55px; height: 50px; z-index: 10;">
-        <h3 class="text-center">{{ publication.post_at|date:"F Y" }}</h3>
+    <div class="position-sticky bg-success my-4 d-flex align-items-center justify-content-center" style="top: 55px; height: 50px; z-index: 10;">
+        <h3 class="text-center m-0">{{ publication.post_at|date:"F Y" }}</h3>
     </div>
     {% endif %}
 
@@ -26,18 +25,17 @@
             <br>
             {{ publication.post_at }}
         </div>
-
         {% if publications.has_next and forloop.last %}
         <span hx-get="{{ url }}?page={{ publications.next_page_number }}"
               hx-target="#publications"
-              hx-select="#publications"
+              hx-select="#publications > *"
               hx-trigger="revealed"
               hx-swap="beforeend">
             </span>
         {% endif %}
     </article>
 
-    {% endfor %}
 
+    {% endfor %}
 </div>
 {% endblock %}

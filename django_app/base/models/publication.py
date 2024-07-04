@@ -19,6 +19,9 @@ class Publication(m.Model):
     post_at = m.DateTimeField(editable=False, auto_now_add=True)
     is_first_of_month = m.BooleanField(default=False, editable=False)
 
+    class Meta:
+        ordering = ['post_at']
+
     def save(self, *args, **kwargs):
         n = datetime.now()
         self.is_first_of_month = not Publication.objects.filter(post_at__year=n.year, post_at__month=n.month,).exists()
