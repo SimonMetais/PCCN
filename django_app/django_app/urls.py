@@ -1,6 +1,6 @@
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include, register_converter
+from django.urls import path, register_converter
 
 from base import views
 from django_app import settings
