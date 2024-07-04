@@ -1,7 +1,9 @@
 import mimetypes
+from datetime import datetime
 from pathlib import Path
 
 from django.db import models as m
+from django.db.models import Q
 from django.template.defaultfilters import truncatechars
 from django.urls import reverse
 from django.utils.html import format_html
@@ -16,6 +18,16 @@ def image_path(instance, filename):
 class Publication(m.Model):
     description = m.TextField()
     post_at = m.DateTimeField(editable=False, auto_now_add=True)
+    is_first_of_month = m.BooleanField(default=False, editable=False)
+
+    def save(self, *args, **kwargs):
+        now = datetime.now()
+        if not Publication.objects.filter(
+                Q(post_at__year=now.year),
+                Q(post_at__month=now.month),
+        ).exists():
+            self.is_first_of_month = True
+        super(Publication, self).save(*args, **kwargs)
 
     @property
     def short_description(self):
@@ -29,7 +41,6 @@ class PublicationAttachment(m.Model):
     file = m.FileField('Média', upload_to=image_path)
     file_type = m.CharField('Type de média', max_length=1, editable=False)
     publication = m.ForeignKey(Publication, m.CASCADE, 'attachments')
-
 
     class Meta:
         verbose_name = 'Média'
@@ -56,8 +67,10 @@ class PublicationAttachment(m.Model):
             return format_html(f'<img src="{self.file.url}" style="max-width: 200px; max-height: 200px;" />')
         elif file_type == 'Video':
             mime_type, _ = mimetypes.guess_type(self.file.url)
-            return format_html(f'<video width="200" controls><source src="{self.file.url}" type="{mime_type}">Your browser does not support the video tag.</video>')
+            return format_html(
+                f'<video width="200" controls><source src="{self.file.url}" type="{mime_type}">Your browser does not support the video tag.</video>')
         else:
             return format_html('No preview available')
+
     image_preview.allow_tags = True
     image_preview.short_description = 'Preview'
