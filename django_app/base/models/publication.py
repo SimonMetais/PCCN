@@ -3,7 +3,6 @@ from datetime import datetime
 from pathlib import Path
 
 from django.db import models as m
-from django.db.models import Q
 from django.template.defaultfilters import truncatechars
 from django.urls import reverse
 from django.utils.html import format_html
@@ -21,12 +20,8 @@ class Publication(m.Model):
     is_first_of_month = m.BooleanField(default=False, editable=False)
 
     def save(self, *args, **kwargs):
-        now = datetime.now()
-        if not Publication.objects.filter(
-                Q(post_at__year=now.year),
-                Q(post_at__month=now.month),
-        ).exists():
-            self.is_first_of_month = True
+        n = datetime.now()
+        self.is_first_of_month = not Publication.objects.filter(post_at__year=n.year, post_at__month=n.month,).exists()
         super(Publication, self).save(*args, **kwargs)
 
     @property
