@@ -8,7 +8,7 @@ from base.models import Publication
 
 def publications(request):
     page_number = request.GET.get('page', 1)
-    paginator = Paginator(Publication.objects.all(), 4)
+    paginator = Paginator(Publication.objects.all(), 10)
     page_obj = paginator.get_page(page_number)
     return render(request, 'publications.html', context={'publications': page_obj})
 
