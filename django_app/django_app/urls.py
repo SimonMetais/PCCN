@@ -17,7 +17,7 @@ urlpatterns = [
     path('protégés/<str:slug>/', views.animal, name='animal'),
 
     path('publications/', views.publications, name='publications'),
-    path('publications/<dt:dt>/', views.publication, name='publication'),
+    path('publications/<dt:dt_publication>/', views.publication, name='publication'),
 
     path('partenaires/', views.sponsors, name='sponsors'),
 

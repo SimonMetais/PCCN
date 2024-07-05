@@ -32,7 +32,7 @@ class Publication(m.Model):
         return truncatechars(self.description, 100)
 
     def get_absolute_url(self):
-        return reverse('publication', kwargs={'dt': self.post_at})
+        return reverse('publication', kwargs={'dt_publication': self.post_at})
 
 
 class PublicationAttachment(m.Model):
