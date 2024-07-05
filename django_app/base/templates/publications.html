@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base/base.html' %}
 
 {% block head %}
 <script src="https://unpkg.com/htmx.org@2.0.0"></script>
@@ -7,7 +7,7 @@
 {% block main-styles %}h-100{% endblock %}
 
 {% block content %}
-<div id="publications">
+<section id="publications">
     {% for publication in publications %}
 
     {% if publication.is_first_of_month %}
@@ -22,9 +22,7 @@
             <h5 class="text-center">{{ publication.post_at|date:"l d" }}</h5>
         </div>
         <div>
-            {{ publication.description }}
-            <br>
-            {{ publication.post_at }}
+            {% include 'elements/publication_resume.html' with publi=publication %}
         </div>
         {% if publications.has_next and forloop.last %}
         <span hx-get="{{ url }}?page={{ publications.next_page_number }}"
@@ -35,5 +33,5 @@
     </article>
 
     {% endfor %}
-</div>
+</section>
 {% endblock %}

@@ -1,0 +1,18 @@
+#welcom-txt {
+    height: 30%;
+}
+#last-publication, #last-animals {
+    height: 70%;
+}
+main {
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    #welcom-txt, #last-publication, #last-animals {
+        height: 31vh;
+    }
+    main {
+        height: auto;
+    }
+}

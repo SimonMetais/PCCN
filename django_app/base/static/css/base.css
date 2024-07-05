@@ -1,0 +1,15 @@
+html, body {
+    height: 100%;
+}
+body {
+    background-color: Ivory;
+}
+footer {
+    font-family: 'Noto Sans Mono'
+}
+
+@media (max-width: 768px) {
+    footer {
+        font-size: 1rem;
+    }
+}
