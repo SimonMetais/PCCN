@@ -1,28 +1,50 @@
 {% with desc=publi.description|linebreaks %}
-<div class="h-100 position-relative">
+<div class="h-100 d-flex flex-column position-relative ">
 
-  {% if publi.attachments.count %}
-  <div class="col">
-    {% if desc|wordcount > 23 %}
-    {{ desc|truncatewords:"20" }}
+    {% if publi.attachments.count %}
+    <div class="w-100" style="max-height: 6.2rem; overflow: hidden;">
+        {% if desc|wordcount > 200 %}
+        {{ desc|truncatewords:"20" }}
+        <p><u>Voir la suite</u></p>
+        {% else %}
+        {{ desc }}
+        {% endif %}
+    </div>
+    {% with medias=publi.attachments.all %}
+    <div class="w-100 flex-fill rounded overflow-hidden">
+        {% if medias.count == 1 %}
+        <div style="background: url('{{ medias.0.file.url }}') no-repeat center center; background-size: cover; height: 100%;"></div>
+        {% elif medias.count == 2 %}
+        <div class="row h-100">
+            <div class="col-6"
+                 style="background: url('{{ medias.0.file.url }}') no-repeat center center; background-size: cover; height: 100%;"></div>
+            <div class="col-6"
+                 style="background: url('{{ medias.1.file.url }}') no-repeat center center; background-size: cover; height: 100%;"></div>
+        </div>
+        {% elif medias.count > 2 %}
+        <div class="row h-100">
+            <div class="h-100 row col-5 p-0 m-0">
+                <div class="col-12 p-0"
+                     style="background: url('{{ medias.0.file.url }}') no-repeat center center; background-size: cover; height: 50%;"></div>
+                <div class="col-12 p-0"
+                     style="background: url('{{ medias.1.file.url }}') no-repeat center center; background-size: cover; height: 50%;"></div>
+            </div>
+            <div class="col-7 p-0 m-0"
+                 style="background: url('{{ medias.2.file.url }}') no-repeat center center; background-size: cover; height: 100%;"></div>
+        </div>
+        {% endif %}
+    </div>
+    {% endwith %}
+
+    {% else %}
+    {% if desc|wordcount > 100 %}
+    {{ desc|truncatewords:"100" }}
     <p><u>Voir la suite</u></p>
     {% else %}
     {{ desc }}
     {% endif %}
-  </div>
-  <div class="col">
-    imgs
-  </div>
 
-  {% else %}
-  {% if desc|wordcount > 100 %}
-  {{ desc|truncatewords:"100" }}
-  <p><u>Voir la suite</u></p>
-  {% else %}
-  {{ desc }}
-  {% endif %}
-
-  {% endif %}
-  <a class="stretched-link" href="{{ publi.get_absolute_url }}" target="_blank"></a>
+    {% endif %}
+    <a class="stretched-link" href="{{ publi.get_absolute_url }}" target="_blank"></a>
 </div>
 {% endwith %}

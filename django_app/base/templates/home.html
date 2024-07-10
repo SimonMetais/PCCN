@@ -6,19 +6,19 @@
 {% block content %}
 <div class="row h-100">
 
-  <section id="welcom-txt" class="border col-12">
+  <section id="welcom-txt" class="border-bottom col-12">
     Bienvenue !
   </section>
 
-  <section id="last-publication" class="border py-2 col-12 col-md-6">
+  <section id="last-publication" class="py-2 col-12 col-md-6 d-flex flex-column">
     <p>Dernière publication :</p>
-    <div class="h-auto position-relative border rounded bg-light">
+    <div class="position-relative border rounded bg-light flex-fill p-2">
       {% include 'elements/publication_resume.html' with publi=last_publication %}
     </div>
   </section>
 
-  <section id="last-animals" class="border col-12 col-md-6">
-    animal
+  <section id="last-animals" class="col-12 col-md-6">
+    Notre dernier protégé :
   </section>
 
 </div>

@@ -1,11 +1,11 @@
 import mimetypes
-from datetime import datetime
 from pathlib import Path
 
 from django.db import models as m
 from django.template.defaultfilters import truncatechars
 from django.urls import reverse
 from django.utils.html import format_html
+from django.utils.timezone import now
 
 from django_app.converters import datetime_url_format
 
@@ -17,14 +17,23 @@ def image_path(instance, filename):
 class Publication(m.Model):
     description = m.TextField()
     post_at = m.DateTimeField(editable=False, auto_now_add=True)
-    is_first_of_month = m.BooleanField(default=False, editable=False)
+    is_last_of_month = m.BooleanField(default=True, editable=False)
 
     class Meta:
-        ordering = ['post_at']
+        ordering = ['-post_at']
 
     def save(self, *args, **kwargs):
-        n = datetime.now()
-        self.is_first_of_month = not Publication.objects.filter(post_at__year=n.year, post_at__month=n.month,).exists()
+        if not self.pk:
+            n = now()
+            try:
+                second_to_last_of_month: Publication = Publication.objects.get(
+                    post_at__year=n.year, post_at__month=n.month,
+                    is_last_of_month=True)
+            except Publication.DoesNotExist:
+                pass
+            else:
+                second_to_last_of_month.is_last_of_month = False
+                second_to_last_of_month.save()
         super(Publication, self).save(*args, **kwargs)
 
     @property
