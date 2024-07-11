@@ -6,8 +6,15 @@
 {% block content %}
 <div class="row h-100">
 
-  <section id="welcom-txt" class="border-bottom col-12">
-    Bienvenue !
+  <section id="welcom-txt" class="border-bottom col-12 py-2">
+    <div class="row h-100">
+      <div class="h-100 py-2 col-12 col-md-7 d-flex">
+        {{ home_stuffs.home_text|linebreaks }}
+      </div>
+      <div class="h-100 p-2 col-12 col-md-5">
+        <img src="{{ home_stuffs.home_picture.url }}" alt="Photo d'accueil" class="img-fluid img-thumbnail" style="height: 100%; width:auto;">
+      </div>
+    </div>
   </section>
 
   <section id="last-publication" class="py-2 col-12 col-md-6 d-flex flex-column">
@@ -17,7 +24,7 @@
     </div>
   </section>
 
-  <section id="last-animals" class="col-12 col-md-6">
+  <section id="last-animals" class="col-12 col-md-6 py-2">
     Notre dernier protégé :
   </section>
 

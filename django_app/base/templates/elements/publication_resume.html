@@ -2,10 +2,9 @@
 <div class="h-100 d-flex flex-column position-relative ">
 
     {% if publi.attachments.count %}
-    <div class="w-100" style="max-height: 6.2rem; overflow: hidden;">
-        {% if desc|wordcount > 200 %}
-        {{ desc|truncatewords:"20" }}
-        <p><u>Voir la suite</u></p>
+    <div class="w-100 px-3 pt-2">
+        {% if desc|wordcount > 30 %}
+        {{ desc|truncatewords:"30" }}<u>Voir la suite</u>
         {% else %}
         {{ desc }}
         {% endif %}
@@ -37,12 +36,13 @@
     {% endwith %}
 
     {% else %}
-    {% if desc|wordcount > 100 %}
-    {{ desc|truncatewords:"100" }}
-    <p><u>Voir la suite</u></p>
-    {% else %}
-    {{ desc }}
-    {% endif %}
+    <div class="w-100 px-3 pt-2 m-0">
+        {% if desc|wordcount > 100 %}
+        {{ desc|truncatewords:"100" }}<u>Voir la suite</u>
+        {% else %}
+        {{ desc }}
+        {% endif %}
+    </div>
 
     {% endif %}
     <a class="stretched-link" href="{{ publi.get_absolute_url }}" target="_blank"></a>

@@ -1,3 +1,4 @@
+from django.core.validators import FileExtensionValidator
 from django.db import models as m
 
 
@@ -13,8 +14,9 @@ horaires = """
 
 
 class Home(m.Model):
-    logo = m.ImageField(upload_to='Home/')
+    logo = m.FileField(verbose_name="Logo (en .SVG uniquement)", upload_to='Home/', validators=[FileExtensionValidator(['svg'])])
     home_text = m.TextField(verbose_name="Texte d'accueil", default="Bienvenue !")
+    home_picture = m.FileField(verbose_name="Image d'accueil", upload_to='Home/', null=True, blank=True)
     location = m.CharField(max_length=255, verbose_name="Adresse", default="6 rue des fleurs 17589 Queleque_part")
     phone_number = m.CharField(max_length=20, verbose_name="Numéro de téléphone", default="+33 (0)6 11 22 33 44")
     email = m.EmailField(verbose_name="e-mail", default="contact@exemple.com")

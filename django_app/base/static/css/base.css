@@ -1,11 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wdth,wght@6..12,75..125,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wdth,wght@87.5,300&display=swap');
+
+* {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+}
+.nav_logo {
+    font-weight: 800;
+    font-variation-settings:
+        "wdth" 125,
+        "YTLC" 500;
+}
 html, body {
     height: 100%;
 }
 body {
-    background-color: Ivory;
+    background-color: AliceBlue;
 }
-footer {
-    font-family: 'Noto Sans Mono'
+footer * {
+  font-family: "Noto Sans Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 87.5;
+}
+footer h5 {
+    font-weight: 400;
 }
 
 @media (max-width: 768px) {
