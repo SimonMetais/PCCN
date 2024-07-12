@@ -6,7 +6,6 @@ from base.models import Home, Publication
 def home(request):
     home_stuffs: Home = Home.objects.first()
     context = {
-        'home_text': home_stuffs.home_text if home_stuffs else None,
         'last_publication': Publication.objects.first(),
     }
-    return render(request, 'home.html', context=context)
+    return render(request, 'home2.html', context=context)

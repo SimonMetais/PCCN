@@ -1,10 +1,10 @@
 <header class="fixed-top">
-    <nav class="navbar navbar-expand-lg bg-light">
+<!--    <nav class="navbar navbar-expand-lg bg-transparent" data-bs-theme="dark">-->
+    <nav class="navbar navbar-expand-lg bg-transparent">
         <div class="container">
-            <a class="navbar-brand nav_logo text-success" href="{% url 'home' %}">
-                <img src="{{ home_stuffs.logo.url }}" alt="Logo" width="40" height="40"
-                     class="d-inline-block align-text-center border border-success rounded-circle">
-                PCCN
+            <a class="navbar-brand nav_logo" href="{% url 'home' %}">
+                <img src="{{ home_stuffs.logo.url }}" alt="Logo" width="50" height="60"
+                     class="d-inline-block align-text-center">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -13,7 +13,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     {% for onglet, link in header_list %}
                     <li class="nav-item">

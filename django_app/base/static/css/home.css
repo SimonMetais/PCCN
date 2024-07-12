@@ -1,18 +1,17 @@
-#welcom-txt {
-    height: 35%;
+#txt-accueil {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
-#last-publication, #last-animals {
-    height: 65%;
+#txt-accueil p {
+    font-weight: 800;
+    font-variation-settings:
+        "wdth" 100,
+        "YTLC" 500;
 }
-main {
-    height: 100%;
-}
-
-@media (max-width: 768px) {
-    #welcom-txt, #last-publication, #last-animals {
-        height: 90vh;
-    }
-    main {
-        height: auto;
-    }
+#txt-accueil h1 {
+    font-weight: 900;
+    font-variation-settings:
+        "wdth" 87.5,
+        "YTLC" 700;
 }
