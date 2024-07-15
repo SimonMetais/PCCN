@@ -2,24 +2,47 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">{% endblock %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
 
 {% block main-style %}{% endblock %}
 {% block main-class %}{% endblock %}
 
 {% block content %}
-<section id="txt-accueil" class="vh-100 container-fluid"
-         style="background-image: url('{{ home_stuffs.home_picture.url }}')">
+<section id="presentation" class="container-fluid"
+         style="background-image: url('{{ home_stuffs.home_picture.url }}');">
     <div class="h-100 row row-cols-1 ">
         <span class="col-1 d-none d-md-block"></span>
         <div class="col-12 col-md-5 px-4 px-sm-5 px-md-0 d-flex flex-column justify-content-center"
-             style="margin-top: 5rem">
-            <div class="rounded p-2 p-sm-4 row" style="backdrop-filter: blur(8px); background: rgba(255,255,255,0.15)">
-                <h1>Poney, chevaux chez vous</h1>
+             style="margin-top: 5rem; margin-bottom: 7rem;">
+            <div id="txt-pres" class="rounded p-2 p-sm-4 row">
+                <h1>Poneys, chevaux chez nous</h1>
                 {{ home_stuffs.home_text|linebreaks }}
-                <button type="button" class="btn btn-warning col-9 col-sm-6 mx-auto mx-sm-0">Warning</button>
+                <button type="button" class="btn btn-warning rounded-pill col-9 col-sm-6 mx-auto mx-sm-0">
+                    En savoir plus
+                </button>
             </div>
         </div>
     </div>
+</section>
+
+<section id="quick-link-cards" class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for svg, text in q_cards %}
+        <div class="col">
+            <div class="card mx-auto h-100" style="width: 80%;">
+                <img src="{% static 'img/home/link_cards/' %}{{ svg }}.svg" class="card-img-top mx-auto px-5 pt-2"
+                     style="height: 4rem;">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ text|safe }}</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="last-animals" class="container-fluid">
+    to
 </section>
 {% endblock %}

@@ -1,17 +1,32 @@
-#txt-accueil {
+#presentation {
+    height: 75vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
 }
-#txt-accueil p {
-    font-weight: 800;
+#presentation p {
     font-variation-settings:
         "wdth" 100,
         "YTLC" 500;
 }
-#txt-accueil h1 {
-    font-weight: 900;
+#presentation h1 {
     font-variation-settings:
         "wdth" 87.5,
         "YTLC" 700;
+}
+
+#txt-pres {
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.15);
+}
+
+#quick-link-cards {
+    position: relative;
+    z-index: 1;
+    top: -5rem;
+    padding: 0 20%;
+}
+quick-link-cards card {
+    height: 20vh;
 }
