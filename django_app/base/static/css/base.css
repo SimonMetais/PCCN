@@ -10,11 +10,20 @@
     "wdth" 100,
     "YTLC" 500;
 }
+.navbar li a {
+    font-weight: 700;
+    font-variation-settings:
+        "wdth" 105,
+        "YTLC" 600;
+}
 .nav_logo {
     font-weight: 800;
     font-variation-settings:
         "wdth" 125,
         "YTLC" 500;
+}
+.nav_logo img {
+    background-color: white;
 }
 html, body {
     height: 100%;

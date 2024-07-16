@@ -1,3 +1,7 @@
+.green_csv {
+    filter: invert(34%) sepia(85%) saturate(6664%) hue-rotate(151deg) brightness(96%) contrast(80%);
+}
+
 #presentation {
     height: 85vh;
     background-repeat: no-repeat;
@@ -17,7 +21,7 @@
 }
 
 #txt-pres {
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(9px);
     background: rgba(255, 255,255, 0.25);
 }
 
@@ -35,42 +39,26 @@ quick-link-cards card {
 }
 #quick-link-cards img {
     height: 4.5rem;
-    filter: invert(34%) sepia(85%) saturate(6664%) hue-rotate(151deg) brightness(96%) contrast(80%);
 }
 
 #last-animals img {
-    clip-path: ellipse(80% 60% at 50% 40%);
+    clip-path: ellipse(70% 60% at 50% 40%);
 }
 
 #stats {
-    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
+    padding-top: 5rem;
+    clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%);
     height: 50vh;
     background-color: LightSteelBlue;
 }
 
-#wave {
-  position: relative;
-  height: 70px;
-  width: 600px;
-  background: #e0efe3;
-}#wave:before {
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 100% 50%;
-  width: 340px;
-  height: 80px;
-  background-color: white;
-  right: -5px;
-  top: 40px;
-}#wave:after {
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 100% 50%;
-  width: 300px;
-  height: 70px;
-  background-color: #e0efe3;
-  left: 0;
-  top: 27px;
+.scroll-down {
+    z-index: 2;
+    position: absolute;
+    bottom: 10%;
+    right: 2%;
+    transition: all 0.5s ease;
+}
+.scroll-down:hover {
+    transform: translateY(20px);
 }
