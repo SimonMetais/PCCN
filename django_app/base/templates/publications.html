@@ -1,33 +1,55 @@
 {% extends 'base/base.html' %}
-
-{% block head %}
+{% load static %}
+{% load filters %}
+{% block script %}
 <script src="https://unpkg.com/htmx.org@2.0.0"></script>
 {% endblock %}
+{% block css %}
+<style>
+    main {
+        background: url('{{ home_stuffs.home_picture.url }}') center / cover no-repeat fixed;
+        position: relative;
+        z-index: -2;
+    }
+    main::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        backdrop-filter: blur(20px);
+}
+
+</style>
+{% endblock %}
+{% block main-style %}padding-top: 4.2rem{% endblock %}
+{% block main-class %}{% endblock %}
 
 {% block content %}
-<section id="publications">
+<section id="publications" class="container">
     {% for publication in publications %}
 
     {% if publication.is_last_of_month %}
-    <div class="position-sticky bg-success my-4 d-flex align-items-center justify-content-center"
-         style="top: 5.3rem; height: 50px; z-index: 2;">
-        <h3 class="text-center m-0">{{ publication.post_at|date:"F Y" }}</h3>
-    </div>
+    <h3 class="text-center m-0 position-sticky d-flex align-items-center justify-content-center bg-success"
+        style="top: 4rem; height: 3rem; z-index: 2;">
+        <time datetime="{{ publication.post_at|date:'Y-m' }}">{{ publication.post_at|date:"F Y" }}</time>
+    </h3>
     {% endif %}
 
-    <article class="bg-light rounded my-3 border border-2 border-dark d-flex flex-column" style="height: 30rem;">
-        <div class="position-sticky bg-dark text-light" style="top: 8.4rem; height: 30px; z-index:1;">
-            <h5 class="text-center">{{ publication.post_at|date:"l d" }}</h5>
-        </div>
-        <div class="flex-grow-1">
-            {% include 'elements/publication_resume.html' with publi=publication %}
-        </div>
-        {% if publications.has_next and forloop.last %}
-        <span hx-get="{{ url }}?page={{ publications.next_page_number }}"
-              hx-select="#publications > *" hx-target="#publications"
-              hx-trigger="revealed" hx-swap="beforeend">
-            </span>
-        {% endif %}
+    <article class="px-0 d-flex flex-column border border-dark border-3 mb-4 rounded" style="height: 60vh">
+        <h5 class="text-center position-sticky bg-dark text-light m-0" style="top: 7rem; height: 2rem; z-index:1;">
+            <time datetime="{{ publication.post_at|date:'Y-m-d' }}">{{ publication.post_at|date:"l d" }}</time>
+        </h5>
+        <figure class="m-0 d-flex flex-column flex-lg-row flex-fill">
+            <figcaption class="h-auto p-2 p-lg-4 bg-light col-12 col-lg-5 order-lg-2">
+                {{ publication.description|publication_format:30 }}
+            </figcaption>
+            <div class="flex-fill bg-light p-0 col-12 col-lg-7">
+                {% include 'elements/mosaic.html' with medias=publication.attachments.all %}
+            </div>
+        </figure>
     </article>
 
     {% endfor %}

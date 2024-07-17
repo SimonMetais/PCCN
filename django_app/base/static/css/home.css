@@ -1,3 +1,12 @@
+header {
+    backdrop-filter: blur(6px);
+    background: transparent;
+    border: none;
+}
+.nav_logo img {
+    background-color: white;
+}
+
 .green_csv {
     filter: invert(34%) sepia(85%) saturate(6664%) hue-rotate(151deg) brightness(96%) contrast(80%);
 }
@@ -18,11 +27,6 @@
     font-variation-settings:
         "wdth" 87.5,
         "YTLC" 700;
-}
-
-#txt-pres {
-    backdrop-filter: blur(9px);
-    background: rgba(255, 255,255, 0.25);
 }
 
 #quick-link-cards {

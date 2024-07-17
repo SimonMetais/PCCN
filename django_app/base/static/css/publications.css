@@ -1,0 +1,38 @@
+article {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255,255, 0.5);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    height: 30rem;
+    display: flex;
+}
+section {
+    background-attachment: fixed;
+}
+.img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    flex: 1;
+
+}
+.imgs {
+    background-color: red;
+}
+
+.description{
+padding:1rem;
+width:50%;
+}
+
+@media (max-width: 960px) {
+article{
+flex-direction:column}
+    .img {
+        order: 3 !important;
+    }
+    .description {
+        width: 100%;
+    }
+}
