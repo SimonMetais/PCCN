@@ -53,6 +53,13 @@
                 {% include 'elements/mosaic.html' with medias=publication.attachments.all %}
             </div>
         </figure>
+
+        {% if publications.has_next and forloop.last %}
+        <span hx-get="{{ url }}?page={{ publications.next_page_number }}"
+              hx-select="#publications > *" hx-target="#publications"
+              hx-trigger="revealed" hx-swap="beforeend">
+            </span>
+        {% endif %}
     </article>
 
     {% endfor %}
