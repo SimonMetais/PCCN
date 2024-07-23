@@ -30,6 +30,13 @@
 <section id="publications" class="pb-3">
     {% for publication in publications %}
 
+    {% if publications.has_next and forloop.last %}
+        <span hx-get="{{ url }}?page={{ publications.next_page_number }}"
+              hx-select="#publications > *" hx-target="#publications"
+              hx-trigger="revealed" hx-swap="beforeend">
+            </span>
+    {% endif %}
+
     {% if publication.is_last_of_month %}
     <h3 class="text-center m-0 position-sticky d-flex align-items-center justify-content-center rounded-bottom"
         style="top: 4rem; height: 3rem; z-index: 2; background-color: LightSteelBlue;">
@@ -53,12 +60,6 @@
             </div>
         </figure>
     </article>
-
-    {% if publications.has_next and forloop.last %}
-        <span hx-get="{{ url }}?page={{ publications.next_page_number }}"
-              hx-select="#publications > *" hx-trigger="revealed" hx-swap="outerHTML">
-            </span>
-    {% endif %}
 
     {% endfor %}
 </section>
