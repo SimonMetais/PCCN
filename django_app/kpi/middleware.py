@@ -1,5 +1,5 @@
 from django_app.settings import STATIC_URL, MEDIA_URL
-from .models import Session, Url
+from .models import Session, Url, SessionHistory
 
 black_list = {
     '/' + STATIC_URL,
@@ -20,12 +20,15 @@ def kpi_middleware(get_response):
             return get_response(request)
 
         if request.user.is_authenticated:
-            session, _ = Session.objects.get_or_create(id=request.user.username, is_authenticated=True)
+            session, _ = Session.objects.get_or_create(id=session_id,
+                                                       is_authenticated=True,
+                                                       auth_username=request.user.username)
         else:
             session, _ = Session.objects.get_or_create(id=session_id)
         url, _ = Url.objects.get_or_create(full_url=url_getted)
 
-        # --------------------  bla  --------------------
+        # --------------------  link  --------------------
+        SessionHistory(url=url, session=session).save()
 
         return get_response(request)
     return middleware
