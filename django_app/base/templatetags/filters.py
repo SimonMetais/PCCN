@@ -16,7 +16,7 @@ def publication_format(texte: str, max_lenght):
 
     words = texte.split()
     if len(words) > max_lenght:
-        texte = ' '.join(words[:max_lenght]) + '...<u> Voir la suite</u>'
+        texte = ' '.join(words[:max_lenght]) + '... <u>Voir la suite</u>'
 
     texte = url_pattern.sub(lambda x: urlize(x.group()), texte)
     return mark_safe(texte)
