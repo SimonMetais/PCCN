@@ -31,10 +31,8 @@
     {% for publication in publications %}
 
     {% if publications.has_next and forloop.last %}
-        <span hx-get="{{ url }}?page={{ publications.next_page_number }}"
-              hx-select="#publications > *" hx-target="#publications"
-              hx-trigger="revealed" hx-swap="beforeend">
-            </span>
+    <span hx-get="{{ url }}?page={{ publications.next_page_number }}" hx-trigger="revealed"
+          hx-select="#publications > *" hx-target="#publications" hx-swap="beforeend"></span>
     {% endif %}
 
     {% if publication.is_last_of_month %}
