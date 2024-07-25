@@ -1,14 +1,18 @@
+
+
+
+
 {% if medias.count == 1 %}
-<div class="img" style="background-image: url('{{ medias.0.file.url }}'); height: 100%;"></div>
+<div class="img flex-fill" style="background-image: url('{{ medias.0.file.url }}');"></div>
 {% elif medias.count == 2 %}
-<div class="row h-100 m-0">
+<div class="row flex-fill m-0">
     <div class="col-6 img"
          style="background-image: url('{{ medias.0.file.url }}'); height: 100%;"></div>
     <div class="col-6 img"
          style="background-image: url('{{ medias.1.file.url }}'); height: 100%;"></div>
 </div>
 {% elif medias.count > 2 %}
-<div class="row h-100 m-0">
+<div class="row flex-fill m-0">
     <div class="h-100 row col-5 p-0 m-0">
         <div class="col-12 p-0 img"
              style="background-image: url('{{ medias.0.file.url }}'); height: 50%;"></div>

@@ -1,12 +1,21 @@
-from django.shortcuts import render, get_object_or_404
+from datetime import timedelta
+from pprint import pprint
 
-from base.models import Home, Publication
+from django.contrib.auth import logout
+from django.contrib.sessions.models import Session
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
+from django.utils.timezone import now
 
 
 def test(request):
-    home_stuffs: Home = Home.objects.first()
-    context = {
-        'home_text': home_stuffs.home_text if home_stuffs else None,
-        'last_publication': Publication.objects.last(),
-    }
-    return render(request, 'test.html', context=context)
+    session_key = request.session.session_key
+    request.session.save()
+
+    pprint(request.session.get('urls_history'))
+
+    session = Session.objects.get(session_key=session_key)
+    logout(request)
+    session.delete()
+    return HttpResponseRedirect(reverse('home'))

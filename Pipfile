@@ -8,6 +8,8 @@ django = "==5.*"
 pillow = "*"
 python-dotenv = "*"
 django-cleanup = "*"
+django-admin-rangefilter = "*"
+admin-totals = "*"
 
 [dev-packages]
 

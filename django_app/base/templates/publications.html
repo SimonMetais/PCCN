@@ -53,7 +53,7 @@
                 <div class="d-lg-none">{{ publication.description|publication_format:30 }}</div>
                 <div class="d-none d-lg-block">{{ publication.description|publication_format:80 }}</div>
             </figcaption>
-            <div class="flex-fill bg-light p-0 col-12 col-lg-7 rounded-bottom overflow-hidden">
+            <div class="flex-fill bg-light p-0 col-12 col-lg-7 rounded-bottom overflow-hidden d-flex">
                 {% include 'elements/mosaic.html' with medias=publication.attachments.all %}
             </div>
         </figure>
