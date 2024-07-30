@@ -5,10 +5,21 @@ from rangefilter.filters import DateRangeQuickSelectListFilterBuilder
 
 from .models import SessionKPI, Url, SessionHistory
 
+from django.contrib import admin
+
 
 @admin.register(Url)
 class UrlAdmin(admin.ModelAdmin):
     list_display = ('url_row', 'url_name', 'session_count')
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 
 class SessionHistoryInline(admin.TabularInline):
@@ -26,3 +37,12 @@ class SessionAdmin(ModelAdminTotals):
     inlines = [SessionHistoryInline]
     list_filter = (('create_at', DateRangeQuickSelectListFilterBuilder()), 'auth_username')
     list_totals = [('unique_urls_count', Sum), ('urls_count', Sum)]
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
