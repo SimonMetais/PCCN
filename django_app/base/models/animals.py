@@ -19,6 +19,7 @@ class Animal(m.Model):
     description = m.TextField()
 
     class Meta:
+        ordering = ['-arrival']
         verbose_name = 'Protégé'
 
     def save(self, *args, **kwargs):

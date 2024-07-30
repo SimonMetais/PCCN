@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<section class="d-flex flex-column align-items-center">
+    <h2 class="text-center pb-3">Tout nos protégés</h2>
+    <div class="row row-cols-2 row-cols-lg-3">
+        {% for animal in animals %}
+        <div class="col">
+            {% include 'animals/animal_card.html' %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

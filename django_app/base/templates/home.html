@@ -50,15 +50,9 @@
 <section id="last-animals" class="container d-flex flex-column align-items-center">
     <h2 class="text-center pb-3">Nos derniers arrivants</h2>
     <div class="row row-cols-2 row-cols-lg-3 g-1 g-sm-3 g-lg-5 pb-5">
-        {% for i in '123456' %}
+        {% for animal in last_animals %}
         <div class="col">
-            <div class="card h-100 shadow rounded-4">
-                <img src="{{ home_stuffs.home_picture.url }}" class="card-img-top rounded-4">
-                <div class="card-body py-3">
-                    <h5 class="card-title text-center">{{ i }}</h5>
-                </div>
-                <a href="#" class="stretched-link"></a>
-            </div>
+            {% include 'animals/animal_card.html' %}
         </div>
         {% endfor %}
     </div>
