@@ -18,9 +18,9 @@
             <div class="glass rounded-3 p-2 p-sm-4 row">
                 <h1>Poneys, chevaux chez nous</h1>
                 {{ home_stuffs.home_text|linebreaks }}
-                <button type="button" class="btn btn-success rounded-pill col-9 col-sm-6 mx-auto mx-sm-0">
-                    En savoir plus
-                </button>
+<!--                <button type="button" class="btn btn-success rounded-pill col-9 col-sm-6 mx-auto mx-sm-0">-->
+<!--                    En savoir plus-->
+<!--                </button>-->
             </div>
         </div>
     </div>
@@ -49,16 +49,16 @@
 
 <section id="last-animals" class="container d-flex flex-column align-items-center">
     <h2 class="text-center pb-3">Nos derniers arrivants</h2>
-    <div class="row row-cols-2 row-cols-lg-3 g-1 g-sm-3 g-lg-5 pb-5">
+    <div class="row row-cols-1 row-cols-lg-3 g-2 g-sm-3 g-lg-5 pb-5">
         {% for animal in last_animals %}
         <div class="col">
             {% include 'animals/animal_card.html' %}
         </div>
         {% endfor %}
     </div>
-    <button type="button" class="btn btn-success rounded-pill" style="width: 25%">
+    <a role="button" href="{% url 'animals' %}" class="btn btn-success rounded-pill" style="width: 25%">
         Plus
-    </button>
+    </a>
 </section>
 
 <section id="stats">

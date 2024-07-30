@@ -12,7 +12,7 @@ def home(request):
     }
     context = {
         # 'last_publication': Publication.objects.first(),
-        'last_animals': Animal.objects.all()[:6],
+        'last_animals': Animal.objects.all()[:3],
         'q_cards': quick_link_cards.items(),
     }
     return render(request, 'home.html', context=context)
