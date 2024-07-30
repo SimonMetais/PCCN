@@ -22,7 +22,7 @@ class SessionHistoryInline(admin.TabularInline):
 class SessionAdmin(ModelAdminTotals):
     list_display = (
         'pk', 'create_at', 'auth_username',
-        'unique_urls_count', 'urls_count', 'is_rebond', 'session_time')
+        'unique_urls_count', 'urls_count', 'is_rebond', 'session_time', 'first_track_source')
     inlines = [SessionHistoryInline]
     list_filter = (('create_at', DateRangeQuickSelectListFilterBuilder()), 'auth_username')
     list_totals = [('unique_urls_count', Sum), ('urls_count', Sum)]

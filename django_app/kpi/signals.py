@@ -1,5 +1,4 @@
 from datetime import datetime
-from pprint import pprint
 
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
@@ -22,11 +21,15 @@ def session_deleted(sender, instance, **kwargs):
         session_kpi.auth_username = user.username
     session_kpi.save()
 
-    for row_url, str_dt in data['urls_history']:
-        url_infos = resolve(row_url)
-        dt = datetime.fromisoformat(str_dt)
+    for history_dict in data['urls_history']:
+        url_infos = resolve(history_dict['url_row'])
+        url, _ = Url.objects.get_or_create(url_row=history_dict['url_row'], url_name=url_infos.url_name)
 
-        url, _ = Url.objects.get_or_create(url_row=row_url, url_name=url_infos.url_name)
-        history = SessionHistory.objects.create(url=url, session=session_kpi, get_at=dt)
+        history: SessionHistory = SessionHistory.objects.create(
+            url=url,
+            session=session_kpi,
+            get_at=datetime.fromisoformat(history_dict['datetime']),
+            track_source=history_dict['track'].get('track_source'),
+        )
 
     session_kpi.calcul_kpis()

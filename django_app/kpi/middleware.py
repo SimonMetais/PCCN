@@ -22,6 +22,13 @@ def kpi_middleware(get_response):
             session['init'] = True
             session['urls_history'] = []
 
-        session['urls_history'].append((url_getted, str(now())))
+        query_params = request.GET
+        track_params = {key: value for key, value in query_params.items() if key.startswith('track_')}
+
+        session['urls_history'].append({
+            'url_row': url_getted,
+            'datetime': str(now()),
+            'track': track_params
+        })
         return get_response(request)
     return middleware

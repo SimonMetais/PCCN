@@ -18,6 +18,8 @@ class SessionKPI(m.Model):
     is_rebond = m.BooleanField(default=False, verbose_name="Est un rebond")
     session_time = m.DurationField(default=None, null=True, verbose_name="Durée de la session")
 
+    first_track_source = m.CharField(max_length=50, null=True, default=None)
+
     objects = m.Manager()
     all_closed = ClosedSessionManager()
 
@@ -26,8 +28,9 @@ class SessionKPI(m.Model):
         self.urls_count = self.urls.count()
         self.unique_urls_count = self.urls.distinct().count()
         self.is_rebond = self.urls_count == 1
-        self.session_time = ((self.history.last().get_at - self.history.first().get_at) -
-                             timedelta(microseconds=self.session_time.microseconds))
+        self.session_time = self.history.last().get_at - self.history.first().get_at
+        self.session_time = self.session_time - timedelta(microseconds=self.session_time.microseconds)
+        self.first_track_source = self.history.exclude(track_source=None).first()
         self.save()
 
     class Meta:
