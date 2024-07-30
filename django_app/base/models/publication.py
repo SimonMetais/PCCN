@@ -46,7 +46,7 @@ class Publication(m.Model):
 
 class PublicationAttachment(m.Model):
     file = m.FileField('Média', upload_to=image_path)
-    file_type = m.CharField('Type de média', max_length=1, editable=False)
+    file_type = m.CharField('Type de média', max_length=10, editable=False)
     publication = m.ForeignKey(Publication, m.CASCADE, 'attachments')
 
     class Meta:
