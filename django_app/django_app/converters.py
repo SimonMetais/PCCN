@@ -4,7 +4,7 @@ datetime_url_format = '%Y_%m_%d__%H_%M_%S'
 
 
 class DatetimeConverter:
-    regex = '\d{4}_\d{2}_\d{2}__\d{2}_\d{2}_\d{2}'
+    regex = r'\d{4}_\d{2}_\d{2}__\d{2}_\d{2}_\d{2}'
     format = datetime_url_format
 
     def to_python(self, value: str):

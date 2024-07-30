@@ -4,6 +4,7 @@ __pycache__/
 !scripts
 !django_app
 django_app/media_dev
+django_app/db.sqlite3
 !Pipfile
 !Pipfile.lock
 !.env
