@@ -11,6 +11,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 IN_PROD = os.environ.get('IN_PROD')
+if IN_PROD :
+    print("SETTINGS DE PROD")
+else:
+    print("SETTINGS DE DEV")
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']

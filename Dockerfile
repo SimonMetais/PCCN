@@ -12,7 +12,6 @@ RUN pip install pipenv && pipenv install --system --deploy --clear
 RUN pip install psycopg2-binary gunicorn
 RUN pip uninstall virtualenv -y && pip uninstall pipenv -y
 
-
 COPY . .
 
 RUN ["chmod", "+x", "./scripts/start.sh"]
