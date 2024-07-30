@@ -11,7 +11,7 @@ def logo_path(instance, filename):
 
 class Sponsor(m.Model):
     name = m.CharField(max_length=50, unique=True, verbose_name="Nom")
-    detail = m.CharField(max_length=50, verbose_name="Détail", default="", null=True)
+    detail = m.CharField(max_length=50, verbose_name="Détail", default="", blank=True)
     slug = m.SlugField(max_length=50, unique=True)
     logo = m.FileField(upload_to=logo_path,
                        validators=[FileExtensionValidator(['svg', 'webp', 'png', 'jpg', 'jpeg', 'png'])])
