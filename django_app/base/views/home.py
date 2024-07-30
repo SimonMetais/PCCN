@@ -7,7 +7,7 @@ def home(request):
     home_stuffs: Home = Home.objects.first()
     quick_link_cards = {
         'donate': ("<strong>Donnez</strong> pour eux", 'https://www.helloasso.com/associations/pccn#highlight'),
-        'adopt': ("<strong>Adoptez</strong> un protégé", '#'),
+        'adopt': ("Devenez <strong>famille d'accueil</strong>", '#'),
         'volunteer': ("Devenez <strong>volontaire</strong>", 'https://www.helloasso.com/associations/pccn/adhesions/adhesion-1'),
     }
     context = {
