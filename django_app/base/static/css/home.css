@@ -1,5 +1,6 @@
 header {
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     background: transparent;
     border: none;
 }

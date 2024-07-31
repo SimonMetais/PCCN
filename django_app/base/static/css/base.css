@@ -27,12 +27,11 @@ header {
 .nav_logo img {
     background-color: white;
 }
-
-html, body {
-    height: 100%;
-}
 body {
     background-color: AliceBlue;
+    position: relative;
+    min-height: 100vh;
+    z-index: -1000;
 }
 footer * {
   font-family: "Noto Sans Mono", monospace;
@@ -48,6 +47,7 @@ footer h5 {
 
 .glass {
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     background: rgba(255, 255,255, 0.3);
 }
 .img {

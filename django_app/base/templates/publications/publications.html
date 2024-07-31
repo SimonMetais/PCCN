@@ -5,25 +5,9 @@
 <script src="https://unpkg.com/htmx.org@2.0.0"></script>
 {% endblock %}
 {% block css %}
-<style>
-    main {
-        background: url('{{ home_stuffs.home_picture.url }}') center / cover no-repeat fixed;
-        position: relative;
-        z-index: -2;
-    }
-    main::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        backdrop-filter: blur(20px);
-}
-</style>
+<link rel="stylesheet" href="{% static 'css/publications.css' %}">
 {% endblock %}
-{% block main-style %}padding-top: 4.2rem{% endblock %}
+{% block main-style %}padding-top: 4.2rem; background-image: url('{{ home_stuffs.home_picture.url }}'){% endblock %}
 {% block main-class %}{% endblock %}
 
 {% block content %}
@@ -42,7 +26,7 @@
     </h3>
     {% endif %}
 
-    <article class="px-0 d-flex flex-column mb-4 border border-light border-3 rounded-3 container"
+    <article class="card container mt-4 px-0 d-flex flex-column border border-light border-3 rounded-3"
              style="min-height: 60vh">
         <h5 class="text-center position-sticky glass m-0 rounded-top py-1"
             style="top: 7rem; height: 2rem; z-index:1;">
@@ -54,9 +38,10 @@
                 <div class="d-none d-lg-block">{{ publication.description|publication_format:80 }}</div>
             </figcaption>
             <div class="flex-fill bg-light p-0 col-12 col-lg-7 rounded-bottom overflow-hidden d-flex">
-                {% include 'elements/mosaic.html' with medias=publication.attachments.all %}
+                {% include 'publications/mosaic.html' with medias=publication.attachments.all %}
             </div>
         </figure>
+        <a href="{{ publication.get_absolute_url }}" class="stretched-link"></a>
     </article>
 
     {% endfor %}

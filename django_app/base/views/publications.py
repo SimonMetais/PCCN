@@ -10,7 +10,7 @@ def publications(request):
     page_number = request.GET.get('page', 1)
     paginator = Paginator(Publication.objects.all(), 10)
     page_obj = paginator.get_page(page_number)
-    return render(request, 'publications.html', context={'publications': page_obj})
+    return render(request, 'publications/publications.html', context={'publications': page_obj})
 
 
 def find_publication(dt_publication: datetime) -> Publication:
@@ -25,4 +25,4 @@ def find_publication(dt_publication: datetime) -> Publication:
 
 def publication(request, dt_publication: datetime):
     the_publication = find_publication(dt_publication)
-    return render(request, 'publication.html', context={'publication': the_publication})
+    return render(request, 'publications/publication.html', context={'publication': the_publication})

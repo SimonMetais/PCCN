@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/publications.css' %}">
+{% endblock %}
+{% block main-class %}min-vh-100{% endblock %}
+{% block main-style %}padding-top: 7rem; background-image: url('{{ home_stuffs.home_picture.url }}'){% endblock %}
+
+{% block content %}
+<article class="container">
+    <div class="border rounded glass p-2 mb-5">
+        {{ publication.description|linebreaks }}
+    </div>
+
+    {% for attachment in publication.attachments.all %}
+    <img src="{{ attachment.file.url }}" class="d-block my-2" style="max-height: 70vh">
+    {% endfor %}
+
+    {% comment %}
+    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for attachment in publication.attachments.all %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{ attachment.file.url }}" class="d-block w-100">
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    {% endcomment %}
+
+</article>
+{% endblock %}
