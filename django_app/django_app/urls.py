@@ -6,22 +6,18 @@ from base import views
 from django_app import settings
 from django_app.converters import DatetimeConverter
 
-
 register_converter(DatetimeConverter, 'dt')
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('admin/', admin.site.urls),
     # path('test/', views.test, name='test'),
 
+    path('', views.home, name='home'),
     path('protégés/', views.animals, name='animals'),
     path('protégés/<str:slug>/', views.animal, name='animal'),
-
     path('publications/', views.publications, name='publications'),
     path('publications/<dt:dt_publication>/', views.publication, name='publication'),
-
     path('partenaires/', views.sponsors, name='sponsors'),
-
-    path('admin/', admin.site.urls),
 ]
 
 if not settings.IN_PROD:
