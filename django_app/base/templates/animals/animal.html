@@ -10,12 +10,27 @@
 
 {% block content %}
 <article class="row row-cols-1 row-cols-lg-2 vh-100">
-    <div id="profile_picture" class="d-flex align-items-center p-0 justify-content-center">
-        <img class="rounded border mt-5 m-lg-0" src="{{ animal.profile.url }}" alt="Photo de rofile de {{ animal.name }}" style="width: 80%">
+    <div id="profile_picture" class="d-flex align-items-center p-0 justify-content-center" style="min-height: 20%">
+        <img class="rounded border mt-5 m-lg-0" src="{{ animal.profile.url }}"
+             alt="Photo de rofile de {{ animal.name }}" style="width: 80%">
         <div style="background-image: url('{{ animal.profile.url }}')" class=""></div>
     </div>
-    <div class="d-flex align-items-center justify-content-center">
-        <h1>{{ animal.name }}</h1>
+    <div class="d-flex flex-column align-items-center justify-content-center px-4 px-lg-5">
+        {% with a=animal %}
+        <div>
+            <h1>
+                Je suis <strong>{{ a.name }}</strong>,<br>
+                un{{a.e}} <strong>{{ a.breed }}</strong> de <strong>{{ a.age }} an{{ a.age|pluralize }}</strong>.
+            </h1>
+            <h5>
+                Arrivé{{a.e}} au refuge le {{ a.arrival }}.
+            </h5>
+            <br>
+            <div class="border border-dark rounded p-2">
+                {{ a.description }}
+            </div>
+        </div>
+        {% endwith %}
     </div>
 </article>
 {% endblock %}

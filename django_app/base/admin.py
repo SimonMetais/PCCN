@@ -13,7 +13,7 @@ class SponsorAdmin(admin.ModelAdmin):
 @admin.register(Animal)
 class AnimalAdmin(admin.ModelAdmin):
     list_display = ('name', 'arrival')
-    fields = ('name', 'breed', 'birth', 'arrival', 'profile', 'description')
+    fields = ('name', 'sexe', 'breed', 'birth', 'arrival', 'profile', 'description')
 
 
 class PublicationAttachmentAdmin(admin.TabularInline):
