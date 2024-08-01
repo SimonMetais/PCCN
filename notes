@@ -1,8 +1,0 @@
-def some_middleware(get_response):
-    def middleware(request):
-        session_id = request.session.session_key
-        session, created = Session.objects.get_or_create(id=session_id)
-        session.urls += '\n' + request.path
-        session.save()
-        return get_response(request)
-    return middleware

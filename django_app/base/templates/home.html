@@ -3,6 +3,7 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'police/calibri/stylesheet.css' %}">
 {% endblock %}
 
 {% block main-style %}{% endblock %}
@@ -15,12 +16,14 @@
         <span class="col-1 d-none d-md-block"></span>
         <div class="col-12 col-md-5 px-4 px-sm-5 px-md-0 d-flex flex-column justify-content-center"
              style="margin-top: 5rem; margin-bottom: 7rem;">
-            <div class="glass rounded-3 p-2 p-sm-4 row">
+            <div class="glass rounded-3 p-2 px-sm-5 py-sm-3 row">
                 <h1>Poneys, chevaux chez nous</h1>
                 {{ home_stuffs.home_text|linebreaks }}
-<!--                <button type="button" class="btn btn-success rounded-pill col-9 col-sm-6 mx-auto mx-sm-0">-->
-<!--                    En savoir plus-->
-<!--                </button>-->
+                {% comment %}
+                <button type="button" class="btn btn-success rounded-pill col-9 col-sm-6 mx-auto mx-sm-0">
+                    En savoir plus
+                </button>
+                {% endcomment %}
             </div>
         </div>
     </div>

@@ -12,6 +12,10 @@ header {
     filter: invert(34%) sepia(85%) saturate(6664%) hue-rotate(151deg) brightness(96%) contrast(80%);
 }
 
+h1 {
+    font-family: "Calibri", sans-serif;
+}
+
 #presentation {
     height: 85vh;
     background-repeat: no-repeat;

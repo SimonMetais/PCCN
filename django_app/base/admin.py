@@ -20,7 +20,7 @@ class PublicationAttachmentAdmin(admin.TabularInline):
     fields = ('file', 'file_type', 'image_preview')
     readonly_fields = ('file_type', 'image_preview')
     model = PublicationAttachment
-    extra = 1
+    extra = 3
 
 
 @admin.register(Publication)

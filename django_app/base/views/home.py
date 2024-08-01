@@ -8,7 +8,7 @@ def home(request):
     quick_link_cards = {
         'donate': ("<strong>Donnez</strong> pour eux", 'https://www.helloasso.com/associations/pccn#highlight'),
         'adopt': ("Devenez <strong>famille d'accueil</strong>", '#'),
-        'volunteer': ("Devenez <strong>volontaire</strong>", 'https://www.helloasso.com/associations/pccn/adhesions/adhesion-1'),
+        'volunteer': ("Devenez <strong>bénévole</strong>", 'https://www.helloasso.com/associations/pccn/adhesions/adhesion-1'),
     }
     context = {
         # 'last_publication': Publication.objects.first(),
