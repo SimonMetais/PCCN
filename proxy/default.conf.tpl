@@ -5,7 +5,6 @@ server {
     # Chemins vers les certificats
     ssl_certificate /etc/nginx/ssl/certificate.crt;
     ssl_certificate_key /etc/nginx/ssl/private.key;
-    ssl_certificate_chain_file /etc/nginx/ssl/ca-bundle.crt; # Si vous avez un CA bundle
 
     # Configuration SSL
     ssl_protocols TLSv1.2 TLSv1.3;
