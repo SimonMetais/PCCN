@@ -4,7 +4,7 @@ server {
     server_name poneys-chevaux-chez-nous.fr www.poneys-chevaux-chez-nous.fr;
 
     location / {
-        return 301 https://$host$request_uri;
+        return 301 https://poneys-chevaux-chez-nous.fr$request_uri;
     }
 }
 
