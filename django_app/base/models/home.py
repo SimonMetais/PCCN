@@ -21,6 +21,7 @@ class Home(m.Model):
     phone_number = m.CharField(max_length=20, verbose_name="Numéro de téléphone", default="+33 (0)6 11 22 33 44")
     email = m.EmailField(verbose_name="e-mail", default="contact@exemple.com")
     opening_hours = m.TextField(verbose_name="Horaire d'ouverture", default=horaires)
+    adoption_text = m.TextField(verbose_name="texte d'adoption", blank=True)
 
     class Meta:
         verbose_name = 'Accueil'

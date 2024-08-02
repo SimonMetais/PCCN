@@ -2,8 +2,9 @@
 
 {% block content %}
 <section class="d-flex flex-column align-items-center">
-    <h2 class="text-center pb-3">Nos protégés</h2>
-    <div class="row row-cols-2 row-cols-lg-3 g-2 g-sm-3 g-lg-5 pb-5">
+    <h2 class="text-center">Nos protégés</h2>
+    <p class="text-center pb-3">Si vous voulez en savoir plus sur un protégé, cliquez sur sa carte</p>
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2 g-sm-3 g-lg-5 pb-5">
         {% for animal in animals %}
         <div class="col">
             {% include 'animals/animal_card.html' %}

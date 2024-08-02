@@ -13,6 +13,7 @@ urlpatterns = [
     # path('test/', views.test, name='test'),
 
     path('', views.home, name='home'),
+    path('adoption/', views.adoption, name='adoption'),
     path('protégés/', views.animals, name='animals'),
     path('protégés/<str:slug>/', views.animal, name='animal'),
     path('publications/', views.publications, name='publications'),

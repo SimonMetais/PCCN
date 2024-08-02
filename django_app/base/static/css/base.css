@@ -36,13 +36,13 @@ body {
 footer * {
   font-family: "Noto Sans Mono", monospace;
   font-optical-sizing: auto;
-  font-weight: 300;
+  font-weight: 700;
   font-style: normal;
   font-variation-settings:
     "wdth" 87.5;
 }
 footer h5 {
-    font-weight: 400;
+    font-weight: 800;
 }
 
 .glass {
@@ -52,10 +52,4 @@ footer h5 {
 }
 .img {
     background: center / cover no-repeat;
-}
-
-@media (max-width: 768px) {
-    footer {
-        font-size: 1rem;
-    }
 }

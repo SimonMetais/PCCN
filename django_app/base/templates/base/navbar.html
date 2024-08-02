@@ -1,35 +1,56 @@
 <header class="fixed-top">
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand nav_logo" href="{% url 'home' %}">
-                <img src="{{ home_stuffs.logo.url }}" alt="Logo" width="40" height="40"
-                     class="d-inline-block align-text-center rounded-circle">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand nav_logo" href="{% url 'home' %}">
+        <img src="{{ home_stuffs.logo.url }}" alt="Logo" width="40" height="40"
+             class="d-inline-block align-text-center rounded-circle">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          {% for onglet, link in header_list %}
+          <li class="nav-item">
+            <a
+                {% if request.resolver_match.url_name in link %}
+                aria-current="page"
+                class="nav-link active"
+                {% else %}
+                class="nav-link"
+                {% endif %}
+                href="{% url link %}">{{onglet}}
             </a>
+          </li>
+          {% endfor %}
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-info" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Helloasso
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://www.helloasso.com/associations/pccn">
+                Accueil
+              </a></li>
+              <li><a class="dropdown-item" href="https://www.helloasso.com/associations/pccn#crowdfunding">
+                Donnations
+              </a></li>
+              <li><a class="dropdown-item" href="https://www.helloasso.com/associations/pccn/adhesions/adhesion-1">
+                Bénévola
+              </a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="https://www.helloasso.com/associations/pccn/boutiques/vide-sellerie">
+                Notre boutique vide sellerie !
+              </a></li>
+            </ul>
+          </li>
 
-                    {% for onglet, link in header_list %}
-                    <li class="nav-item">
-                        <a
-                                {% if request.resolver_match.url_name in link %}
-                                aria-current="page"
-                                class="nav-link active"
-                                {% else %}
-                                class="nav-link"
-                                {% endif %}
-                                href="{% url link %}">{{onglet}}
-                        </a>
-                    </li>
-                    {% endfor %}
-
-                </ul>
-            </div>
-        </div>
-    </nav>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>

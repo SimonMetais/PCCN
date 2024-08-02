@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+
+{% block main-class %}container min-vh-100 d-flex flex-column align-items-center justify-content-center{% endblock %}
+
+{% block content %}
+<section class="border border-dark border-2 rounded p-3 p-lg-5">
+  {{ home_stuffs.adoption_text|linebreaks }}
+</section>
+{% endblock %}
