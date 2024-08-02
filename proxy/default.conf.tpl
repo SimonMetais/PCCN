@@ -3,8 +3,8 @@ server {
     server_name poneys-chevaux-chez-nous.fr www.poneys-chevaux-chez-nous.fr;
 
     # Chemins vers les certificats
-    ssl_certificate /etc/nginx/ssl/certificate.crt;
-    ssl_certificate_key /etc/nginx/ssl/private.key;
+    # ssl_certificate /etc/nginx/ssl/certificate.crt;
+    # ssl_certificate_key /etc/nginx/ssl/private.key;
 
     # Configuration SSL
     ssl_protocols TLSv1.2 TLSv1.3;
