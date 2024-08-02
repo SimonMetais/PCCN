@@ -13,7 +13,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 IN_PROD = os.environ.get('IN_PROD')
 if IN_PROD:
     print("SETTINGS DE PROD")
-    SECURE_SSL_REDIRECT = True
+    SECURE_SSL_REDIRECT = False
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
 else:

@@ -24,3 +24,12 @@ server {
         include /etc/nginx/proxy_params;
     }
 }
+
+server {
+    listen 80;
+    server_name poneys-chevaux-chez-nous.fr www.poneys-chevaux-chez-nous.fr;
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
