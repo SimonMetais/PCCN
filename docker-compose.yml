@@ -34,7 +34,7 @@ services:
             - static-data:/static
             - media-data:/media
         ports:
-            - "81:81"
+            - "80:80"
         depends_on:
             - app
 
