@@ -13,11 +13,14 @@ SECRET_KEY = os.environ['SECRET_KEY']
 IN_PROD = os.environ.get('IN_PROD')
 if IN_PROD:
     print("SETTINGS DE PROD")
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 else:
     print("SETTINGS DE DEV")
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['poneys-chevaux-chez-nous.fr', 'www.poneys-chevaux-chez-nous.fr'] if IN_PROD else ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -103,7 +106,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SESSION_COOKIE_AGE = 30 * 60  # 30 minutes
 SESSION_SAVE_EVERY_REQUEST = True
-
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True

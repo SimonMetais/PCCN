@@ -1,5 +1,6 @@
 server {
     listen ${LISTEN_PORT};
+    server_name poneys-chevaux-chez-nous.fr www.poneys-chevaux-chez-nous.fr;
 
     location /static {
         alias /static;
