@@ -28,7 +28,7 @@ services:
     proxy:
         build:
             context: ./proxy
-        restart: always
+        restart: no
         container_name: PCCN__proxy
         volumes:
             - static-data:/static
