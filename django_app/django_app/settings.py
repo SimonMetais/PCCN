@@ -21,6 +21,7 @@ else:
 DEBUG = True
 
 ALLOWED_HOSTS = ['poneys-chevaux-chez-nous.fr', 'www.poneys-chevaux-chez-nous.fr', '217.160.48.69'] if IN_PROD else ['*']
+CSRF_TRUSTED_ORIGINS = ['https://*.poneys-chevaux-chez-nous.fr']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
